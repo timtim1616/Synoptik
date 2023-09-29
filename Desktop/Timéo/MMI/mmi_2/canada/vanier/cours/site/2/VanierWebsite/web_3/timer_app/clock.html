@@ -1,0 +1,289 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style_clock.css">
+    <title>Timer App Sample</title>
+
+    <style>
+        #analogue g {
+            transform-origin: 50% 50%;
+        }
+
+        #analogue svg {
+            max-height: 50vh;
+        }
+
+        input[type=number] {
+            border: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <div id="wrapper">
+
+        <!-- THANKS FOR READING THE CODE! YOU ARE AWSOME! -->
+
+        <header>
+            <h1>Timer App Sample</h1>
+        </header>
+
+        <nav>
+            <button id="nav_clock">Clock</button>
+            <button id="nav_down">Countdown Timer</button>
+            <button id="nav_watch">Stop Watch</button>
+        </nav>
+
+        <article id="clock">
+            <!-- <h2>Clock</h2>
+            <section id="digital">
+                <span id="clock_hours"></span> :
+                <span id="clock_minutes"></span> :
+                <span id="clock_seconds"></span>
+            </section>
+            <section id="analogue">
+                <svg width="100%" height="100%" viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
+                 <circle class="circle_clock" cx="300" cy="300" r="299" ></circle> 
+                    <g id="svg_s">
+                        <path d="M 300 300 L 300 10" style="fill:none;stroke:blue;stroke-width:1px;" />
+                    </g>
+                    <g id="svg_m">
+                        <path d="M 300 300 L 300 50" style="fill:none;stroke:red;stroke-width:3px;" />
+                    </g>
+                    <g id="svg_h">
+                        <path d="M 300 300 L 300 100" style="fill:none;stroke:green;stroke-width:3px;" />
+                    </g>
+
+                </svg> -->
+            </section>
+            <!-- Updated HTML with centered clock hands -->
+
+            <section>
+                <div class="clock">
+                    <div class="hour-hand" id="svg_h"></div>
+                    <div class="minute-hand" id="svg_m"></div>
+                    <div class="second-hand" id="svg_s"></div>
+                </div>
+            </section>
+
+        </article>
+
+        <article id="countdown">
+            <h2>Countdown Timer</h2>
+            <section id="down_form">
+                <form action="">
+                    <input type="number" name="down_m" id="down_m" value="0"> :
+                    <input type="number" name="down_s" id="down_s" value="10">
+                </form>
+                <button id="down_start">Start</button>
+                <button id="down_stop">Stop</button>
+            </section>
+        </article>
+
+        <article id="stopwatch">
+            <h2>Stop watch</h2>
+            <section id="watch_form">
+                <form action="">
+                    <input type="number" name="watch_m" id="watch_m" value="0"> :
+                    <input type="number" name="watch_s" id="watch_s" value="0">
+                </form>
+                <div class="icon__home">
+                    <ion-icon name="home"></ion-icon>
+                </div>
+                <button id="watch_start">Start</button>
+                <button id="watch_stop">Pause</button>
+                <button id="watch_reset">Reset</button>
+            </section>
+        </article>
+
+        <audio id="blip">
+            <source src="blip.wav" type="audio/wav">
+        </audio>
+
+
+    </div><!--wrapper-->
+    <script>
+
+
+
+        let clockF = async function () {
+            try {
+                // Fetch the current time from the WorldTimeAPI
+                let response = await fetch('http://worldtimeapi.org/api/timezone/Europe/Paris');
+                let data = await response.json();
+
+                // Extract hours, minutes, and seconds from the API response
+                let h = parseInt(data.datetime.slice(11, 13));
+                let m = parseInt(data.datetime.slice(14, 16));
+                let s = parseInt(data.datetime.slice(17, 19));
+
+                // Calculate the rotation angles for the clock hands
+                let sDeg = (s / 60) * 360;
+                let mDeg = ((m + s / 60) / 60) * 360;
+                let hDeg = ((h + m / 60) / 12) * 360;
+
+                // Apply rotations to the clock hands
+                document.getElementById("svg_s").style.transform = "rotate(" + sDeg + "deg)";
+                document.getElementById("svg_m").style.transform = "rotate(" + mDeg + "deg)";
+                document.getElementById("svg_h").style.transform = "rotate(" + hDeg + "deg)";
+            } catch (error) {
+                console.error("Error fetching the time:", error);
+            }
+        };
+
+        // Refresh the clock every 1000 milliseconds (1 second)
+        window.setInterval(clockF, 1000);
+
+
+
+
+
+
+
+
+        // //CLOCK
+        // let clockF = function () {
+        //     let t = new Date();
+        //     let h = t.getHours();
+        //     let m = t.getMinutes() < 10 ? "0" + t.getMinutes() : t.getMinutes();
+        //     let s = t.getSeconds() < 10 ? "0" + t.getSeconds() : t.getSeconds();
+        //     let M = t.getSeconds() + (t.getMilliseconds() * 0.001);
+
+        //     document.getElementById("clock_hours").innerHTML = h;
+        //     document.getElementById("clock_minutes").innerHTML = m;
+        //     document.getElementById("clock_seconds").innerHTML = s;
+
+        //     //         document.getElementById("svg_s").style.transform="rotate("+s*6+"deg)";
+        //     document.getElementById("svg_s").style.transform = "rotate(" + M * 6 + "deg)";
+        //     document.getElementById("svg_m").style.transform = "rotate(" + m * 6 + "deg)";
+        //     document.getElementById("svg_h").style.transform = "rotate(" + h * 30 + "deg)";
+        // };
+        // window.setInterval(clockF, 1);
+        // //    window.setInterval(clockF,1000);
+
+
+
+
+
+
+
+        //COUNT DOWN
+        let countdown = function () {
+            let s = document.getElementById("down_s").value;
+            let m = document.getElementById("down_m").value;
+            let i;
+
+            let tick = function () {
+                s = document.getElementById("down_s").value;
+                m = document.getElementById("down_m").value;
+                if (s == 0) {
+                    s = 59;
+                    m--;
+                }
+                else {
+                    s--;
+                }
+                document.getElementById("down_s").value = s;
+                document.getElementById("down_m").value = m;
+
+                if (s == 0 && m == 0) {
+                    clearInterval(i);
+                    setTimeout(function () { document.getElementById("down_s").value = 10; }, 2000);
+                    document.getElementById("blip").play();
+                }
+
+            };
+
+            document.getElementById("down_start").addEventListener("click", function () {
+                i = setInterval(tick, 1000);
+            });
+            document.getElementById("down_stop").addEventListener("click", function () {
+                clearInterval(i);
+            });
+
+
+
+        };
+        countdown();
+
+        //STOP WATCH
+        let watch = function () {
+            let s = document.getElementById("watch_s").value;
+            let m = document.getElementById("watch_m").value;
+            let i;
+
+            let tick = function () {
+                s = document.getElementById("watch_s").value;
+                m = document.getElementById("watch_m").value;
+                if (s == 59) {
+                    s = 0;
+                    m++;
+                }
+                else {
+                    s++;
+                }
+                document.getElementById("watch_s").value = s;
+                document.getElementById("watch_m").value = m;
+
+            };
+
+            document.getElementById("watch_start").addEventListener("click", function () {
+                i = setInterval(tick, 1000);
+            });
+            document.getElementById("watch_stop").addEventListener("click", function () {
+                clearInterval(i);
+            });
+            document.getElementById("watch_reset").addEventListener("click", function () {
+                document.getElementById("watch_s").value = 0;
+                document.getElementById("watch_m").value = 0;
+                //clearInterval(i);
+            });
+
+        };
+        watch();
+
+
+        //NAVIGATION
+        let ui = function () {
+            let c = document.getElementById("clock");
+            let d = document.getElementById("countdown");
+            let w = document.getElementById("stopwatch");
+
+            let C = document.getElementById("nav_clock");
+            let D = document.getElementById("nav_down");
+            let W = document.getElementById("nav_watch");
+
+            c.style.display = "block";
+            d.style.display = "none";
+            w.style.display = "none";
+
+            C.addEventListener("click", function () {
+                c.style.display = "block";
+                d.style.display = "none";
+                w.style.display = "none";
+            });
+            D.addEventListener("click", function () {
+                c.style.display = "none";
+                d.style.display = "block";
+                w.style.display = "none";
+            });
+            W.addEventListener("click", function () {
+                c.style.display = "none";
+                d.style.display = "none";
+                w.style.display = "block";
+            });
+        };
+        ui();
+
+    </script>
+</body>
+
+</html>

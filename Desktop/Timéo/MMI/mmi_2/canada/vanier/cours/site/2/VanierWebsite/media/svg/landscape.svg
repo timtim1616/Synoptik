@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="landscape" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1600">
+  <defs>
+    <linearGradient id="Dégradé_sans_nom_8" data-name="Dégradé sans nom 8" x1="799.81" y1="1611.91" x2="800.19" y2="-8.17" gradientUnits="userSpaceOnUse">
+      <stop offset=".23" stop-color="#445aa6"/>
+      <stop offset=".7" stop-color="#3b3e77"/>
+      <stop offset="1" stop-color="#37305f"/>
+    </linearGradient>
+    <linearGradient id="Dégradé_sans_nom_60" data-name="Dégradé sans nom 60" x1="479.3" y1="574.69" x2="846.44" y2="362.72" gradientUnits="userSpaceOnUse">
+      <stop offset=".13" stop-color="#4abbec"/>
+      <stop offset=".34" stop-color="#4897d2"/>
+      <stop offset=".74" stop-color="#4558a4"/>
+      <stop offset=".93" stop-color="#444093"/>
+    </linearGradient>
+    <linearGradient id="Dégradé_sans_nom_4" data-name="Dégradé sans nom 4" x1="792.43" y1="454.9" x2="809.42" y2="2054.81" gradientUnits="userSpaceOnUse">
+      <stop offset=".52" stop-color="#1b7539"/>
+      <stop offset=".68" stop-color="#196731"/>
+      <stop offset="1" stop-color="#184f25"/>
+    </linearGradient>
+  </defs>
+  <g id="night">
+    <rect x="0" y=".5" width="1600" height="1599.5" style="fill: url(#Dégradé_sans_nom_8); stroke-width: 0px;"/>
+    <g id="moon">
+      <circle cx="1273" cy="359.5" r="135" style="fill: #fef9d6; stroke-width: 0px;"/>
+      <circle cx="1201" cy="332.5" r="27" style="fill: #9f9e95; opacity: .3; stroke-width: 0px;"/>
+      <circle cx="1295.5" cy="418" r="40.5" style="fill: #9f9e95; opacity: .3; stroke-width: 0px;"/>
+      <circle cx="1282" cy="287.5" r="18" style="fill: #9f9e95; opacity: .3; stroke-width: 0px;"/>
+    </g>
+    <g id="meteor">
+      <path d="m468.48,548.31c.88,3.19,2.42,6.29,4.89,9.07,6.36,7.16,16.69,9.26,25.58,5.72,61.43-24.5,369.04-158.59,369.04-158.59l-381.75,112.79c-13.27,3.92-21.45,17.68-17.77,31.02Z" style="fill: url(#Dégradé_sans_nom_60); stroke-width: 0px;"/>
+    </g>
+  </g>
+  <g id="main_ground">
+    <path d="m.5,772.61s864.5,1067.49,1600,57.19c-.5,336.7,0,770.7,0,770.7H.5" style="fill: url(#Dégradé_sans_nom_4); stroke-width: 0px;"/>
+    <g id="trees">
+      <polygon points="129.15 1232.5 104.7 1232.5 116.93 1196.5 129.15 1160.5 141.38 1196.5 153.6 1232.5 129.15 1232.5" style="fill: #003c33; stroke-width: 0px;"/>
+      <polygon points="241.85 1278.5 215.7 1278.5 228.77 1240 241.85 1201.5 254.92 1240 268 1278.5 241.85 1278.5" style="fill: #003c33; stroke-width: 0px;"/>
+      <polygon points="519.85 1355.5 501.7 1355.5 510.77 1328.78 519.85 1302.06 528.92 1328.78 538 1355.5 519.85 1355.5" style="fill: #003c33; stroke-width: 0px;"/>
+      <polygon points="1008.35 1304.5 986.7 1304.5 997.52 1272.63 1008.35 1240.75 1019.17 1272.63 1030 1304.5 1008.35 1304.5" style="fill: #003c33; stroke-width: 0px;"/>
+      <polygon points="1458.35 1435.5 1436.7 1435.5 1447.52 1403.63 1458.35 1371.75 1469.17 1403.63 1480 1435.5 1458.35 1435.5" style="fill: #003c33; stroke-width: 0px;"/>
+      <polygon points="126.35 935.5 104.7 935.5 115.52 903.63 126.35 871.75 137.17 903.63 148 935.5 126.35 935.5" style="fill: #003c33; stroke-width: 0px;"/>
+      <polygon points="1511.85 1081.5 1485.7 1081.5 1498.77 1043 1511.85 1004.5 1524.92 1043 1538 1081.5 1511.85 1081.5" style="fill: #003c33; stroke-width: 0px;"/>
+    </g>
+    <g id="House">
+      <rect x="373" y="1097.5" width="225" height="225" style="fill: #221b10; stroke-width: 0px;"/>
+      <polygon points="485.35 1034.5 372.7 1097.5 598 1097.5 485.35 1034.5" style="fill: #221b10; stroke-width: 0px;"/>
+      <rect id="door" x="445" y="1196.5" width="81" height="126" style="fill: #221b10; stroke-width: 0px;"/>
+    </g>
+  </g>
+  <g id="stars-2" data-name="stars">
+    <ellipse id="star_6" cx="72.39" cy="417.93" rx="3.99" ry="3.06" style="fill: #fff; opacity: .7; stroke-width: 0px;"/>
+    <ellipse id="star_5" cx="892.13" cy="341.17" rx="3.99" ry="3.06" style="fill: #fff; opacity: .7; stroke-width: 0px;"/>
+    <ellipse id="star_4" cx="575.71" cy="1048.59" rx="3.99" ry="3.06" style="fill: #fff; opacity: .7; stroke-width: 0px;"/>
+    <ellipse id="star_3" cx="1495.85" cy="346.25" rx="3.99" ry="3.06" style="fill: #fff; opacity: .7; stroke-width: 0px;"/>
+    <ellipse id="star_2" cx="206.75" cy="155.56" rx="3.99" ry="3.06" style="fill: #fff; opacity: .7; stroke-width: 0px;"/>
+    <ellipse id="star_1" cx="1596.01" cy="1238.44" rx="3.99" ry="3.06" style="fill: #fff; opacity: .7; stroke-width: 0px;"/>
+  </g>
+</svg>

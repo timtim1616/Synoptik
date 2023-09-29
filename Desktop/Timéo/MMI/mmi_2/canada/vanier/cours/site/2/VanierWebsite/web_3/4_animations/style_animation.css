@@ -1,0 +1,334 @@
+body{
+  background-color: #0a0c3e;
+}
+
+@keyframes rainbowText {
+  0% {
+    text-shadow: 0 0 5px #e74c3c, 2px -4px 5px #e67e22, 4px -8px 5px #f1c40f,
+      6px -12px 5px #27ae60, 8px -16px 5px #3498db, 10px -20px 5px #8e44ad,
+      12px -24px 5px #e74c3c;
+  }
+  100% {
+    text-shadow: 12px -24px 5px #e74c3c, 14px -28px 5px #e67e22,
+      16px -32px 5px #f1c40f, 18px -36px 5px #27ae60, 20px -40px 5px #3498db,
+      22px -44px 5px #8e44ad, 24px -48px 5px #e74c3c;
+  }
+}
+
+.title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  animation: rainbowText 5s linear infinite;
+  color: #f7f2e1;
+}
+
+#mojito {
+  transform-origin: center center;
+  animation: rotate-inverse 5s linear infinite;
+}
+
+@keyframes rotate-inverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+#earth {
+  transform-origin: center center;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#planete3 {
+  transform-origin: center center;
+  animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#star_1,
+#star_2,
+#star_3 {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkling 3s infinite;
+}
+
+@keyframes twinkling {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+#star_4,
+#star_5 {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkling 5s infinite;
+}
+
+@keyframes twinkling {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+#star_6 {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkling 4s infinite;
+}
+
+@keyframes twinkling {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.sunshine {
+  fill: #fdc321;
+  animation: sunGlow 5s ease-in-out infinite;
+}
+
+@keyframes sunGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 40px rgba(253, 195, 33, 0.7));
+  }
+  50% {
+    filter: drop-shadow(0 0 6 0px rgba(253, 195, 33, 0.9));
+  }
+}
+
+.mojitoshine {
+  fill: #33a532;
+  animation: planetGlow 5s ease-in-out infinite;
+}
+
+@keyframes planetGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 130px rgba(51, 165, 50, 0.7));
+  }
+  50% {
+    filter: drop-shadow(0 0 150px rgba(51, 165, 50, 0.9));
+  }
+}
+
+.moonshine {
+  fill: #ffffff;
+  animation: moonshine 5s ease-in-out infinite;
+}
+
+@keyframes moonshine {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 130px rgba(250, 250, 250, 0.7));
+  }
+  50% {
+    filter: drop-shadow(0 0 150px rgba(250, 250, 250, 0.9));
+  }
+}
+
+#hello {
+  margin: auto;
+  width: 400px;
+  height: 400px;
+  background: url("media/svg/sheet4.svg");
+  animation: play 0.5s steps(4) infinite;
+}
+
+@keyframes play {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: -1600px;
+  }
+}
+
+#meteor {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.animations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  margin-inline: 8%;
+  flex-direction: row;
+}
+
+.block {
+  width: calc(50% - 10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+@media (max-width: 1200px) {
+  .block {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-inline: 8%;
+    flex-direction: column;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* Styles par défaut pour la face avant */
+.block {
+    width: 400px;
+    height: 400px;
+    perspective: 1000px;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    position: relative;
+    transform-origin: center center; /* Ajuste le point de transformation au centre */
+}
+
+.svg-container {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 2px solid black;
+    border-radius: 20px;
+    position: absolute;
+    background-color: ##0a0c3e;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+
+.back {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    position: absolute;
+    background-color: #17034f; 
+    border-radius: 20px;
+    transform: rotateY(180deg);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.block:hover .back {
+    opacity: 1;
+}
+
+
+.block:hover .card {
+    transform: rotateY(180deg);
+}
+
+
+.block p:last-child {
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+p {
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f7f2e1;
+  margin: 5%;
+  font-family: "Montserrat", sans-serif;
+}
+
+.type{
+  color: #a092c7;
+  font-weight: 500;
+}
+
+
+
