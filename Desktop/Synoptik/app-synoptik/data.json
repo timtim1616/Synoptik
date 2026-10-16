@@ -1,0 +1,61 @@
+[
+  {
+    "label": "XA45 (Caméscope Broadcast 4K)",
+    "brand": "Canon",
+    "category": "camera",
+    "domain": "video",
+    "power": true,
+    "powerWatts": "6",
+    "location": "Plateau",
+    "inputs": [
+      { "id": "in_xlr_1", "name": "Audio In 1 (XLR Mic/Line)", "type": "XLR", "connector": "XLR-F", "visible": true },
+      { "id": "in_xlr_2", "name": "Audio In 2 (XLR Mic/Line)", "type": "XLR", "connector": "XLR-F", "visible": true },
+      { "id": "in_mic_jack", "name": "Mic In (Jack 3.5mm)", "type": "Jack", "connector": "Mini-Jack 3.5mm", "visible": false },
+      { "id": "in_pwr_dc", "name": "DC 8.4V In", "type": "Power", "connector": "Jack DC", "visible": false }
+    ],
+    "outputs": [
+      { "id": "out_sdi_3g", "name": "3G-SDI Out", "type": "SDI", "connector": "BNC", "visible": true },
+      { "id": "out_hdmi_mini", "name": "Mini-HDMI Out", "type": "HDMI", "connector": "Mini-HDMI", "visible": true },
+      { "id": "out_headphone", "name": "Casque (Jack 3.5mm)", "type": "Jack", "connector": "Mini-Jack 3.5mm", "visible": false },
+      { "id": "out_usb", "name": "USB Mini-B", "type": "USB", "connector": "USB-B", "visible": false, "isBiDirectional": true }
+    ]
+  },
+  {
+    "label": "Transmetteur HF Vidéo TX (Émetteur Caméra)",
+    "brand": "SWIT",
+    "category": "converter",
+    "domain": "video",
+    "power": true,
+    "powerWatts": "8",
+    "location": "Plateau",
+    "inputs": [
+      { "id": "in_sdi_3g", "name": "3G-SDI In", "type": "SDI", "connector": "BNC", "visible": true },
+      { "id": "in_hdmi", "name": "HDMI In", "type": "HDMI", "connector": "HDMI-A", "visible": true },
+      { "id": "in_pwr_dc", "name": "DC 7-36V In (D-Tap / Lemo)", "type": "Power", "connector": "Jack DC", "visible": false }
+    ],
+    "outputs": [
+      { "id": "out_sdi_loop", "name": "3G-SDI Loop Out", "type": "SDI", "connector": "BNC", "visible": true },
+      { "id": "out_rf_wireless", "name": "Signal Sans Fil HF (5 GHz)", "type": "Sync", "connector": "Sans fil (5GHz)", "visible": true },
+      { "id": "out_micro_usb", "name": "Micro-USB Service", "type": "USB", "connector": "Micro-USB", "visible": false, "isBiDirectional": true }
+    ]
+  },
+  {
+    "label": "Transmetteur HF Vidéo RX (Récepteur Régie)",
+    "brand": "SWIT",
+    "category": "converter",
+    "domain": "video",
+    "power": true,
+    "powerWatts": "7",
+    "location": "Régie",
+    "inputs": [
+      { "id": "in_rf_wireless", "name": "Signal Sans Fil HF (5 GHz)", "type": "Sync", "connector": "Sans fil (5GHz)", "visible": true },
+      { "id": "in_pwr_dc", "name": "DC 7-36V In", "type": "Power", "connector": "Jack DC", "visible": false }
+    ],
+    "outputs": [
+      { "id": "out_sdi_1", "name": "3G-SDI Out 1", "type": "SDI", "connector": "BNC", "visible": true },
+      { "id": "out_sdi_2", "name": "3G-SDI Out 2", "type": "SDI", "connector": "BNC", "visible": true },
+      { "id": "out_hdmi", "name": "HDMI Out", "type": "HDMI", "connector": "HDMI-A", "visible": true },
+      { "id": "out_micro_usb", "name": "Micro-USB Service", "type": "USB", "connector": "Micro-USB", "visible": false, "isBiDirectional": true }
+    ]
+  }
+]

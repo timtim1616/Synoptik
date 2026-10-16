@@ -1,0 +1,65 @@
+/* src/index.css */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #121214;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* ==========================================================
+   CONTRÔLES DE ZOOM REACT FLOW (Icônes bien noires & lisibles)
+   ========================================================== */
+.react-flow__controls {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45) !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+  border: 1px solid #d1d5db !important;
+}
+
+.react-flow__controls-button {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  width: 28px !important;
+  height: 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.react-flow__controls-button:last-child {
+  border-bottom: none !important;
+}
+
+.react-flow__controls-button:hover {
+  background-color: #f3f4f6 !important;
+}
+
+/* Forçage strict des icônes SVG en noir 100% opaque */
+.react-flow__controls-button svg {
+  fill: #000000 !important;
+  stroke: #000000 !important;
+  color: #000000 !important;
+  width: 13px !important;
+  height: 13px !important;
+}
+
+.react-flow__controls-button svg path {
+  fill: #000000 !important;
+  stroke: #000000 !important;
+}
+
+/* MiniMap intégration */
+.react-flow__minimap {
+  background-color: #16181d !important;
+  border: 1px solid #282c38 !important;
+  border-radius: 6px !important;
+}
